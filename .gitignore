@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+.venv/
+venv/
+env/
+
+archive.zip
+*.csv
+analysis.ipynb
+
+.streamlit/secrets.toml
