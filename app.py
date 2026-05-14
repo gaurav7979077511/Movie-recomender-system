@@ -6,6 +6,7 @@ import requests
 import streamlit as st
 
 
+AUTHOR_NAME = "Kumar Gaurav"
 POSTER_BASE_URL = "http://image.tmdb.org/t/p/w500/"
 
 
@@ -66,7 +67,21 @@ def recommended(movie):
 
 movies, similarity = load_data()
 
+st.set_page_config(
+    page_title=f"Movie Recommender System | {AUTHOR_NAME}",
+    layout="wide",
+)
+
 st.title("Movie Recommender System")
+st.caption(f"Built by {AUTHOR_NAME}")
+
+with st.sidebar:
+    st.header("About")
+    st.write(
+        "A content-based movie recommendation app built with Python, pandas, "
+        "and Streamlit."
+    )
+    st.write(f"Created by **{AUTHOR_NAME}**")
 
 selected_movie_name = st.selectbox("Select a Movie", movies["title"].values)
 
@@ -81,3 +96,6 @@ if st.button("Recommend"):
                 st.image(poster)
             else:
                 st.caption("Poster unavailable")
+
+st.divider()
+st.caption(f"Created by {AUTHOR_NAME} - Movie Recommender System")
